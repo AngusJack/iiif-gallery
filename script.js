@@ -1,4 +1,4 @@
-const manifestUrl = "YOUR_IIIF_MANIFEST_URL_HERE"; // Replace with your IIIF manifest URL
+const manifestUrl = "https://cudl.lib.cam.ac.uk/iiif/collection/treasures"; // Replace with your IIIF manifest URL
 
 async function fetchImages() {
     try {
