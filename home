@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IIIF Flickr-Style Grid</title>
+    <script src="https://unpkg.com/mirador@latest/dist/mirador.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f8f8;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+        }
+        .grid img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .grid img:hover {
+            transform: scale(1.05);
+        }
+        #viewer {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>IIIF Flickr-Style Grid</h1>
+    <div class="grid" id="imageGrid"></div>
+    <div id="viewer"></div>
+
+    <script>
+        const manifestUrl = "https://cudl.lib.cam.ac.uk/iiif/collection/treasures";
+        fetch(manifestUrl)
+            .then(response => response.json())
+            .then(data => {
+                const images = data.sequences[0].canvases.map(canvas => canvas.images[0].resource['@id']);
+                const grid = document.getElementById('imageGrid');
+                images.forEach(url => {
+                    let img = document.createElement('img');
+                    img.src = url;
+                    img.onclick = () => openMirador(url);
+                    grid.appendChild(img);
+                });
+            });
+
+        function openMirador(imageUrl) {
+            document.getElementById('viewer').style.display = 'flex';
+            Mirador.viewer({
+                id: "viewer",
+                windows: [{
+                    imageMode: 'individual',
+                    loadedManifest: manifestUrl
+                }]
+            });
+        }
+    </script>
+</body>
+</html>
