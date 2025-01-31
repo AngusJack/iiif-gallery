@@ -1,4 +1,4 @@
-const manifestUrl = "treasures.json"; // Replace with your IIIF manifest URL
+const manifestUrl = "https://gist.github.com/AngusJack/a4e9749e1699ee32563fe865708d7bb4"; // Replace with your IIIF manifest URL
 
 async function fetchImages() {
     try {
