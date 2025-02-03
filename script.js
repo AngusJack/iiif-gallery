@@ -1,4 +1,4 @@
-const manifestUrl = "https://view.nls.uk/manifest/2396/5843/239658430/manifest.json"; // Replace with your IIIF manifest URL
+const manifestUrl = "https://iiif.quartexcollections.com/lse/iiif/cdc85ecf-7862-438b-923c-6c0a2af2c1c7/manifest"; // Replace with your IIIF manifest URL
 
 async function fetchImages() {
     try {
