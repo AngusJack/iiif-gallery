@@ -1,4 +1,4 @@
-const manifestUrl = "http://iiif.io/api/presentation/2/context.json"; // Replace with your IIIF manifest URL
+const manifestUrl = "https://iiif.humap.site/iiif/booth/b8/manifest"; // Replace with your IIIF manifest URL
 
 async function fetchImages() {
     try {
