@@ -1,4 +1,4 @@
-const manifestUrl = "https://iiif.quartexcollections.com/lse/iiif/cdc85ecf-7862-438b-923c-6c0a2af2c1c7/manifest"; // Replace with your IIIF manifest URL
+const manifestUrl = "http://iiif.io/api/presentation/2/context.json"; // Replace with your IIIF manifest URL
 
 async function fetchImages() {
     try {
